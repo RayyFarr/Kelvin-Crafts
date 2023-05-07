@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Best Collection</h1>
+</div>
+
+<div class="card-columns">
+	@foreach (var product in Model.Products)
+	{
+		<div class="card">
+			<div class="card-img" style="background-image:url('@product.Image');"></div>
+			<div class= "card-body"><h5> @product.Title</h5></div>
+			<div class=" card-body">
+					@if (product.Ratings != null)
+					{
+						<h6 class="card-rating">Rating: @Model.Average(product.Ratings)</h6>
+					}	
+			</div>
+		</div>
+	}
+</div>

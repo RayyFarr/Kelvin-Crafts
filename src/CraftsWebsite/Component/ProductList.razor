@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using CraftsWebSite.Models
+@using CraftsWebSite.Service
+
+@inject JsonFileProductService ProductService
+<div class="card-columns">
+	@foreach (var product in ProductService.GetProducts.Products)
+	{
+		<div class="card">
+			<div class="card-img" style="background-image:url('@product.Image');"></div>
+			<div class="card-body"><h5> @product.Title</h5></div>
+			<div class=" card-body">
+				@if (product.Ratings != null)
+				{
+					<h6 class="card-rating">Rating: @Model.Average(product.Ratings)</h6>
+				}
+			</div>
+		</div>
+	}
+</div>
+
+@code {
+
+}
