@@ -1,5 +1,5 @@
 ﻿using CraftsWebsite.Models;
-using CraftsWebSite.Services;
+using CraftsWebsite.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -12,10 +12,9 @@ for details on configuring this project to bundle and minify static web assets. 
     opacity: 1;
     -webkit-transform-style: preserve-3d;
 }
-.card {
+.product-card {
     width: 30%;
-    height:30%;
-    margin:0.5vw;
+    margin: 0.5vw;
     float: left;
 }
 .card-columns .card-body {
@@ -41,10 +40,6 @@ for details on configuring this project to bundle and minify static web assets. 
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
-}
-.card.card-columns.card{
-    transform:scale(1);
-    transition:0.3s;
 }
 .card-columns .card:hover {
     transform: scale(1.05);

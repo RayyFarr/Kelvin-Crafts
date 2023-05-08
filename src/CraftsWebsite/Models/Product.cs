@@ -13,8 +13,8 @@ namespace CraftsWebsite.Models
         public string? Title { get; set; }
         public string? Description { get; set; }
         public int[]? Ratings { get; set; }
-        public float? Rating { get; set; }
-        public override string ToString() => JsonSerializer.Serialize<Product>(this);
+        public int? Rating { get; set; }
+        public override string ToString() => JsonSerializer.Serialize(this);
 
     }
 }

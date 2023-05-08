@@ -5,7 +5,7 @@ using System.Text.Json;
 using CraftsWebsite.Models;
 using Microsoft.AspNetCore.Hosting;
 
-namespace CraftsWebSite.Services
+namespace CraftsWebsite.Services
 {
 	public class JsonFileProductService
 	{
@@ -32,21 +32,21 @@ namespace CraftsWebSite.Services
 		{
 			var products = GetProducts();
 
-			Product product = products.First(x => x.Id == productId);
-			if (product.Ratings == null)
+			var query = products.First(x => x.Id == productId);
+			if (query.Ratings == null)
 			{
-				product.Ratings = new int[] { rating };
+				query.Ratings = new int[] { rating };
 			}
 			else
 			{
-				var ratings = product.Ratings.ToList();
+				var ratings = query.Ratings.ToList();
 				ratings.Add(rating);
-				product.Ratings = ratings.ToArray();
+				query.Ratings = ratings.ToArray();
 			}
-			product.Rating = (float?)Enumerable.Average(product.Ratings);
+
 			using var outputStream = File.OpenWrite(JsonFileName);
 
-			JsonSerializer.Serialize<IEnumerable<Product>>(
+			JsonSerializer.Serialize(
 			    new Utf8JsonWriter(outputStream, new JsonWriterOptions
 			    {
 				    SkipValidation = true,
